@@ -1,0 +1,35 @@
+{
+  "type": "kotoba-custom-deck",
+  "schemaVersion": 1,
+  "deckId": "sample-manga-ch01",
+  "displayName": "Sample Manga Chapter 1",
+  "sourceTitle": "Sample Manga Volume 1",
+  "chapter": "Chapter 1",
+  "notes": "Replace this file with your extracted cards.",
+  "cards": [
+    {
+      "id": "p001-01",
+      "german_term": "der Bahnhof",
+      "english_term": "train station",
+      "german_example": "Wir warten am Bahnhof auf den Zug.",
+      "english_example": "We are waiting at the train station for the train.",
+      "tags": [
+        "chapter-1",
+        "noun"
+      ],
+      "sourcePage": 1
+    },
+    {
+      "id": "p001-02",
+      "german_term": "warten",
+      "english_term": "to wait",
+      "german_example": "Wir warten am Bahnhof auf den Zug.",
+      "english_example": "We are waiting at the train station for the train.",
+      "tags": [
+        "chapter-1",
+        "verb"
+      ],
+      "sourcePage": 1
+    }
+  ]
+}

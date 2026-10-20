@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German Quiz</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="css/style.css?v=publish-2">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="stats-container"></div>
+    <button id="menu-toggle-btn">☰</button>
+    <nav id="study-tabs" role="tablist" aria-label="Study sections">
+        <button class="study-tab active" type="button" role="tab" data-study-tab="vocabulary" aria-selected="true">Vocabulary</button>
+        <button class="study-tab" type="button" role="tab" data-study-tab="pareto" aria-selected="false">Pareto</button>
+    </nav>
+    <nav id="connector-mode-tabs" class="subdeck-tabs" role="tablist" aria-label="Connector practice direction" hidden>
+        <button class="connector-mode-tab active" type="button" role="tab" data-connector-direction="german-to-english" aria-selected="true">German to English</button>
+        <button class="connector-mode-tab" type="button" role="tab" data-connector-direction="english-to-german" aria-selected="false">English to German</button>
+    </nav>
+    <nav id="sentence-deck-tabs" class="subdeck-tabs" role="tablist" aria-label="German sentence decks" hidden>
+        <button class="sentence-deck-tab active" type="button" role="tab" data-sentence-deck="sentences_read" aria-selected="true">Read</button>
+        <button class="sentence-deck-tab" type="button" role="tab" data-sentence-deck="sentences_speak" aria-selected="false">Speak</button>
+        <a class="subdeck-source-link" href="https://ankiweb.net/shared/info/785874566" target="_blank" rel="noopener noreferrer">Source</a>
+    </nav>
+    <nav id="pareto-deck-tabs" role="tablist" aria-label="Pareto decks" hidden>
+        <button class="pareto-deck-tab active" type="button" role="tab" data-pareto-deck="pareto_core" aria-selected="true">Core</button>
+        <button class="pareto-deck-tab" type="button" role="tab" data-pareto-deck="pareto_patterns" aria-selected="false">Patterns</button>
+        <button class="pareto-deck-tab" type="button" role="tab" data-pareto-deck="pareto_extension" aria-selected="false">Extension</button>
+        <label id="pareto-pattern-frame-control" for="pareto-pattern-frame-selector" hidden>
+            <span>Frame</span>
+            <select id="pareto-pattern-frame-selector">
+                <option value="all">All frames (562)</option>
+                <option value="routine">Routine expressions (84)</option>
+                <option value="perfekt_frame">Perfect tense (103)</option>
+                <option value="modal_frame">Modal (43)</option>
+                <option value="separable_frame">Separable verbs (122)</option>
+                <option value="funkverbgefüge">Funktionsverbgefüge (20)</option>
+                <option value="particle_frame">Particles (40)</option>
+                <option value="connector_bundle">Connectors (65)</option>
+                <option value="lexical_bundle">Lexical bundles (85)</option>
+            </select>
+        </label>
+        <a id="pareto-source-link" href="https://github.com/gbrlpzz/german-pareto-deck" target="_blank" rel="noopener noreferrer">Source</a>
+    </nav>
+    <nav id="dark-deck-tabs" class="subdeck-tabs" role="tablist" aria-label="Dark season 1 episode 1 decks" hidden>
+        <button class="dark-deck-tab active" type="button" role="tab" data-dark-deck="dark_s01e01_understand" aria-selected="true">German to English</button>
+        <button class="dark-deck-tab" type="button" role="tab" data-dark-deck="dark_s01e01_recall" aria-selected="false">English to German</button>
+    </nav>
+
+    <div id="side-panel">
+        <div class="panel-content">
+            <h2>Settings</h2>
+            <div class="settings-folders">
+                <section class="settings-folder">
+                    <button class="settings-folder-toggle" type="button" aria-expanded="false" aria-controls="vocabulary-settings">
+                        <span>Vocabulary</span>
+                        <span class="settings-folder-chevron" aria-hidden="true"></span>
+                    </button>
+                    <div id="vocabulary-settings" class="settings-folder-content" hidden>
+                        <div class="settings-group">
+                            <label for="deck-selector">Deck</label>
+                            <select id="deck-selector">
+                                <option value="">-- Select Deck --</option>
+                            </select>
+                        </div>
+                        <div class="settings-group">
+                            <label>Custom Decks</label>
+                            <div class="settings-actions">
+                                <button id="import-custom-deck-btn" class="secondary-btn" type="button">Import JSON Deck</button>
+                                <button id="remove-custom-deck-btn" class="secondary-btn danger-btn" type="button" disabled>Remove Selected</button>
+                            </div>
+                            <input type="file" id="import-custom-deck-input" style="display: none;" accept=".json,application/json">
+                            <p id="custom-deck-status" class="settings-help">Import a manga deck JSON to make it available in every quiz mode.</p>
+                        </div>
+                        <div class="settings-group">
+                            <div class="toggle-switch">
+                                <label for="autoplay-audio-toggle">Autoplay Audio</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="autoplay-audio-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="settings-group">
+                            <div class="toggle-switch">
+                                <label for="reverse-input-toggle">Type German from English</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="reverse-input-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div id="reverse-sentence-setting" class="toggle-switch sub-toggle hidden">
+                                <label for="show-german-sentence-toggle">Show German Sentence</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="show-german-sentence-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="settings-group">
+                            <div class="toggle-switch">
+                                <label for="sentence-translation-toggle">Type German Sentence from English</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="sentence-translation-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="settings-group">
+                            <div class="toggle-switch">
+                                <label for="case-practice-toggle">Practice Cases</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="case-practice-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div id="pokemon-mode" class="settings-group visible">
+                            <div class="toggle-switch">
+                                <label for="pokemon-mode-toggle">Pokémon Mode</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="pokemon-mode-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="settings-folder">
+                    <button class="settings-folder-toggle" type="button" aria-expanded="false" aria-controls="auxiliary-settings">
+                        <span>Auxiliary</span>
+                        <span class="settings-folder-chevron" aria-hidden="true"></span>
+                    </button>
+                    <div id="auxiliary-settings" class="settings-folder-content" hidden>
+                        <div class="settings-group compact-settings-group">
+                            <div class="toggle-switch">
+                                <label for="auxiliary-sein-toggle">Sein</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="auxiliary-sein-toggle" data-auxiliary="sein">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-switch stacked-toggle">
+                                <label for="auxiliary-haben-toggle">Haben</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="auxiliary-haben-toggle" data-auxiliary="haben">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-switch stacked-toggle">
+                                <label for="auxiliary-werden-toggle">Werden</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="auxiliary-werden-toggle" data-auxiliary="werden">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="settings-folder">
+                    <button class="settings-folder-toggle" type="button" aria-expanded="false" aria-controls="modalverb-settings">
+                        <span>Modalverb</span>
+                        <span class="settings-folder-chevron" aria-hidden="true"></span>
+                    </button>
+                    <div id="modalverb-settings" class="settings-folder-content" hidden>
+                        <div class="settings-group compact-settings-group">
+                            <div class="toggle-switch">
+                                <label for="modalverb-table-toggle">Table</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="modalverb-table-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="settings-folder">
+                    <button class="settings-folder-toggle" type="button" aria-expanded="false" aria-controls="irregular-verb-settings">
+                        <span>Irregular Verbs</span>
+                        <span class="settings-folder-chevron" aria-hidden="true"></span>
+                    </button>
+                    <div id="irregular-verb-settings" class="settings-folder-content" hidden>
+                        <div class="settings-group compact-settings-group">
+                            <div class="toggle-switch">
+                                <label for="irregular-meaning-toggle">Infinitive meaning</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="irregular-meaning-toggle" data-irregular-verb-mode="meaning">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-switch stacked-toggle">
+                                <label for="irregular-praesens-toggle">Präsens</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="irregular-praesens-toggle" data-irregular-verb-mode="praesens">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-switch stacked-toggle">
+                                <label for="irregular-praeteritum-toggle">Präteritum</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="irregular-praeteritum-toggle" data-irregular-verb-mode="praeteritum">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-switch stacked-toggle">
+                                <label for="irregular-perfekt-toggle">Perfekt</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="irregular-perfekt-toggle" data-irregular-verb-mode="perfekt">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div id="quiz-container">
+        <div id="question-card">
+            <div id="scene-media" hidden>
+                <div class="scene-image-frame">
+                    <img id="scene-image" alt="Scene from Dark season 1 episode 1">
+                    <span id="scene-position"></span>
+                </div>
+                <div id="scene-context" aria-label="Surrounding dialogue">
+                    <p id="scene-context-before"></p>
+                    <p id="scene-context-after"></p>
+                </div>
+            </div>
+            <p id="question"></p>
+        </div>
+        <div id="question-toolbar">
+            <button id="play-word-audio-btn" class="audio-btn hidden" type="button">Play Word</button>
+            <button id="play-sentence-audio-btn" class="audio-btn hidden" type="button">Play Sentence</button>
+        </div>
+        <p id="german-example" class="example-sentence"></p>
+        <div id="decomposition-display" class="hidden"></div>
+        <div id="feedback-container">
+             <p id="feedback"></p>
+        </div>
+        <input type="text" id="answer-input" placeholder="Type the meaning..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </div>
+
+    <main id="modalverb-practice" hidden>
+        <div class="modalverb-practice-heading">
+            <h1 id="modalverb-practice-title">Präsens</h1>
+            <div class="modalverb-practice-controls">
+                <div class="practice-inline-toggle">
+                    <label for="modalverb-praesens-toggle">Präsens</label>
+                    <label class="switch">
+                        <input type="checkbox" id="modalverb-praesens-toggle" data-modalverb-tense="praesens">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="practice-inline-toggle">
+                    <label for="modalverb-praeteritum-toggle">Präteritum</label>
+                    <label class="switch">
+                        <input type="checkbox" id="modalverb-praeteritum-toggle" data-modalverb-tense="praeteritum">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="practice-inline-toggle">
+                    <label for="modalverb-konjunktiv-toggle">Konj. II</label>
+                    <label class="switch">
+                        <input type="checkbox" id="modalverb-konjunktiv-toggle" data-modalverb-tense="konjunktiv-ii">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="practice-inline-toggle">
+                    <label for="modalverb-show-answers-toggle">Show answers</label>
+                    <label class="switch">
+                        <input type="checkbox" id="modalverb-show-answers-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div id="modalverb-table-region" class="modalverb-table-region"></div>
+        <p id="modalverb-feedback" class="modalverb-feedback" aria-live="polite"></p>
+    </main>
+
+    <div id="pokemon-catcher">
+        <img id="pokemon-image" src="" alt="Wild Pokémon">
+        <p id="pokemon-name"></p>
+    </div>
+    
+    <div id="pokedex-container">
+         <button id="pokedex-btn">Pokédex</button>
+         <button id="save-pokedex-btn">Save</button>
+         <button id="load-pokedex-btn">Load</button>
+         <input type="file" id="load-pokedex-input" style="display: none;" accept=".kotodex">
+    </div>
+
+    <!-- Pokedex Modal -->
+    <div id="pokedex-modal" class="modal" style="display: none;">
+        <div class="modal-content" id="pokedex-modal-content">
+             <div id="pokedex-header">
+                <span class="close-btn" id="pokedex-close-btn">&times;</span>
+             </div>
+            <div id="pokedex-controls">
+                <input type="text" id="pokedex-search" placeholder="Search by name or #" autocomplete="off">
+                <div id="pokedex-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="caught">Caught</button>
+                    <button class="filter-btn" data-filter="missing">Missing</button>
+                </div>
+            </div>
+            <div id="pokedex-stats">Caught: 0 / 0</div>
+            <div id="pokedex-grid"></div>
+            <div id="pokedex-resizer"></div>
+        </div>
+    </div>
+
+    <script src="js/main.js?v=publish-2"></script>
+</body>
+</html>

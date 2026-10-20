@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+
+# Local deck conversions without public redistribution permission.
+data/conversation_connectors.json
+data/sentences_read.json
+data/sentences_speak.json
+data/dark_s01e01_understand.json
+data/dark_s01e01_recall.json
+audio/german_sentences/
+media/dark_s01e01/
