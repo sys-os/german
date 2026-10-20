@@ -218,6 +218,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const BUILT_IN_AUDIO_SOURCE_FILE = 'vocabeo_all';
     const SAVE_KEY = 'k0t0b@_p0k3d3x_s@v3_d@t@'; // For "encryption"
     const DOUBLE_SPACE_THRESHOLD_MS = 325;
+    const MOBILE_ADVANCE_DELAY_MS = 1000;
+    let mobileAdvanceTimeout = null;
+    let questionTransitionTimeout = null;
     const PARETO_DECKS = [
         { fileName: 'pareto_core', displayName: 'German Pareto Core', cardCount: 1313 },
         { fileName: 'pareto_patterns', displayName: 'German Pareto Patterns', cardCount: 562 },
@@ -617,7 +620,36 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function clearAdvanceTimers() {
+        clearTimeout(mobileAdvanceTimeout);
+        clearTimeout(questionTransitionTimeout);
+        mobileAdvanceTimeout = null;
+        questionTransitionTimeout = null;
+    }
+
+    function scheduleMobileAdvance() {
+        if (
+            mobileAdvanceTimeout !== null
+            || questionTransitionTimeout !== null
+            || !window.matchMedia('(max-width: 700px), (pointer: coarse)').matches
+            || !quizState.isShowingAnswer
+            || !quizState.currentCard
+            || quizState.modalVerbTableEnabled
+        ) {
+            return;
+        }
+
+        const answeredCard = quizState.currentCard;
+        mobileAdvanceTimeout = setTimeout(() => {
+            mobileAdvanceTimeout = null;
+            if (quizState.isShowingAnswer && quizState.currentCard === answeredCard) {
+                nextQuestion();
+            }
+        }, MOBILE_ADVANCE_DELAY_MS);
+    }
+
     function resetQuizSelection() {
+        clearAdvanceTimers();
         stopAudioPlayback();
         quizState.deck = [];
         quizState.upcomingCards = [];
@@ -1227,6 +1259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function restoreQuizRuntimeState(savedState) {
+        clearAdvanceTimers();
         if (!savedState || !Array.isArray(savedState.deck) || savedState.deck.length === 0) {
             resetQuizSelection();
             return;
@@ -1257,6 +1290,7 @@ document.addEventListener('DOMContentLoaded', () => {
         restoreQuizUiState(savedState.ui);
         updateStatsDisplay();
         updateCustomDeckControls();
+        scheduleMobileAdvance();
     }
 
     function updateStudyTabUI() {
@@ -1632,6 +1666,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function restoreSessionSnapshot(snapshot) {
+        clearAdvanceTimers();
         stopAudioPlayback();
 
         if (quizState.typingAnimationInterval) {
@@ -1816,6 +1851,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        clearAdvanceTimers();
+
         const currentCardId = getCardSessionId(quizState.currentCard);
         if (!currentCardId) {
             return;
@@ -1896,6 +1933,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function showAndAdvance(isCorrect, givenUp = false) {
+        clearAdvanceTimers();
         quizState.isShowingAnswer = true;
         answerInputEl.disabled = true;
 
@@ -1965,10 +2003,7 @@ document.addEventListener('DOMContentLoaded', () => {
             recycleCard(quizState.currentCard);
         }
         
-        // PAUSE HERE until user presses Enter again.
-        // if (isCorrect) {
-        //     setTimeout(() => nextQuestion(), 500);
-        // }
+        scheduleMobileAdvance();
     }
 
     function checkAnswer() {
@@ -1993,6 +2028,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function nextQuestion() {
+        if (questionTransitionTimeout !== null) {
+            return;
+        }
+        clearTimeout(mobileAdvanceTimeout);
+        mobileAdvanceTimeout = null;
         stopAudioPlayback();
         // Start fading out both elements simultaneously
         questionEl.classList.add('faded');
@@ -2001,7 +2041,8 @@ document.addEventListener('DOMContentLoaded', () => {
         quizState.currentCardHasBeenGivenUp = false;
 
         // Wait for the animation to finish before showing the next question
-        setTimeout(() => {
+        questionTransitionTimeout = setTimeout(() => {
+            questionTransitionTimeout = null;
             // Clear feedback content AFTER it has faded out
             feedbackEl.innerHTML = '';
             feedbackEl.className = '';
@@ -2014,6 +2055,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function startQuiz(deckName, mode) {
+        clearAdvanceTimers();
         stopAudioPlayback();
         const loadedDeck = await loadDeck(deckName);
         if (loadedDeck.length === 0) {
@@ -2667,8 +2709,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (quizState.currentCard && !quizState.isShowingAnswer) {
                 answerInputEl.focus();
             }
+            scheduleMobileAdvance();
             return;
         }
+
+        clearAdvanceTimers();
 
         modalVerbPracticeTitleEl.textContent = tableDefinition.title;
         const showAnswers = Boolean(quizState.modalVerbShowAnswers[tense]);
