@@ -1042,8 +1042,7 @@
       "answer": [
         "Sonntag"
       ],
-      "speechDeckType": "a2",
-      "speechFallbackText": "Sonntag"
+      "speechDeckType": "a2"
     },
     {
       "id": "speech-a2-1749464764843",

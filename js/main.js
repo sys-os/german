@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const auxiliaryToggleEls = Array.from(document.querySelectorAll('[data-auxiliary]'));
     const irregularVerbModeToggleEls = Array.from(document.querySelectorAll('[data-irregular-verb-mode]'));
     const speechA2DeckBtnEl = document.getElementById('speech-a2-deck-btn');
+    const speechConnectorsDeckBtnEl = document.getElementById('speech-connectors-deck-btn');
     const modalVerbTableToggleEl = document.getElementById('modalverb-table-toggle');
     const modalVerbTenseToggleEls = Array.from(document.querySelectorAll('[data-modalverb-tense]'));
     const modalVerbPracticeEl = document.getElementById('modalverb-practice');
@@ -201,11 +202,13 @@ document.addEventListener('DOMContentLoaded', () => {
         paretoPatternFrame: 'all',
         sentenceDeckName: 'sentences_read',
         darkDeckName: 'dark_s01e01_understand',
+        speechDeckName: 'speech_a2',
         studyTabSessions: { vocabulary: null, connectors: null, pareto: null, sentences: null, dark: null, irregular: null, speech: null },
         paretoDeckSessions: { pareto_core: null, pareto_patterns: null, pareto_extension: null },
         paretoPatternFrameSessions: {},
         sentenceDeckSessions: { sentences_read: null, sentences_speak: null },
         darkDeckSessions: { dark_s01e01_understand: null, dark_s01e01_recall: null },
+        speechDeckSessions: { speech_a2: null, speech_connectors: null },
         correctDingAudioContext: null,
         excludedCardIds: new Set(),
         builtInWordAudioIndexPromise: null,
@@ -262,7 +265,11 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
     const IRREGULAR_VERB_DECK_NAMES = new Set(IRREGULAR_VERB_DECKS.map(deck => deck.fileName));
     const IRREGULAR_VERB_DECK_BY_MODE = Object.fromEntries(IRREGULAR_VERB_DECKS.map(deck => [deck.mode, deck.fileName]));
-    const SPEECH_A2_DECK = { fileName: 'speech_a2', displayName: 'Speech - A2', cardCount: 155 };
+    const SPEECH_DECKS = [
+        { fileName: 'speech_a2', displayName: 'Speech - A2', cardCount: 155 },
+        { fileName: 'speech_connectors', displayName: 'Speech - Connectors', cardCount: 92 },
+    ];
+    const SPEECH_DECK_NAMES = new Set(SPEECH_DECKS.map(deck => deck.fileName));
     const MODALVERB_COLUMNS = [
         { key: 'koennen', label: 'können' },
         { key: 'muessen', label: 'müssen' },
@@ -466,7 +473,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function isSpeechCard(card) {
-        return card?.speechDeckType === 'a2';
+        return card?.speechDeckType === 'a2' || card?.speechDeckType === 'connectors';
     }
 
     function normalizeOptionalString(value) {
@@ -654,7 +661,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const speechAudioPlaying = isSpeechCard(answeredCard)
                 && quizState.autoplayAudioEnabled
-                && ((!quizState.audio.paused && !quizState.audio.ended) || window.speechSynthesis?.speaking);
+                && !quizState.audio.paused && !quizState.audio.ended;
             if (speechAudioPlaying && performance.now() - speechAudioStartedAt < 15000) {
                 mobileAdvanceTimeout = setTimeout(advanceWhenReady, 250);
                 return;
@@ -1407,8 +1414,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 && toggleEl.dataset.irregularVerbMode === quizState.irregularVerbMode;
         });
         const speechActive = quizState.activeStudyTab === 'speech';
-        speechA2DeckBtnEl.classList.toggle('active', speechActive);
-        speechA2DeckBtnEl.setAttribute('aria-pressed', String(speechActive));
+        for (const [button, deckName] of [
+            [speechA2DeckBtnEl, 'speech_a2'],
+            [speechConnectorsDeckBtnEl, 'speech_connectors'],
+        ]) {
+            const isActive = speechActive && quizState.speechDeckName === deckName;
+            button.classList.toggle('active', isActive);
+            button.setAttribute('aria-pressed', String(isActive));
+        }
         document.body.classList.toggle('pareto-tab-active', quizState.activeStudyTab === 'pareto');
         document.body.classList.toggle('sentence-tab-active', quizState.activeStudyTab === 'sentences');
         document.body.classList.toggle('dark-tab-active', quizState.activeStudyTab === 'dark');
@@ -1446,7 +1459,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function switchStudyTab(targetTab) {
-        if (!['vocabulary', 'pareto', 'speech'].includes(targetTab) || targetTab === quizState.activeStudyTab) {
+        if (!['vocabulary', 'connectors', 'pareto', 'sentences', 'dark', 'speech'].includes(targetTab) || targetTab === quizState.activeStudyTab) {
             return;
         }
 
@@ -1462,13 +1475,17 @@ document.addEventListener('DOMContentLoaded', () => {
             quizState.sentenceDeckSessions[quizState.sentenceDeckName] = currentSession;
         } else if (quizState.activeStudyTab === 'dark') {
             quizState.darkDeckSessions[quizState.darkDeckName] = currentSession;
+        } else if (quizState.activeStudyTab === 'speech') {
+            quizState.speechDeckSessions[quizState.speechDeckName] = currentSession;
         } else if (quizState.activeStudyTab === 'irregular' && quizState.irregularVerbMode) {
             quizState.irregularVerbSessions[quizState.irregularVerbMode] = currentSession;
         }
         quizState.activeStudyTab = targetTab;
         updateStudyTabUI();
 
-        const savedSession = quizState.studyTabSessions[targetTab];
+        const savedSession = targetTab === 'speech'
+            ? quizState.speechDeckSessions[quizState.speechDeckName]
+            : quizState.studyTabSessions[targetTab];
         if (savedSession) {
             restoreQuizRuntimeState(savedSession);
             return;
@@ -1483,7 +1500,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (targetTab === 'connectors') {
             await startQuiz('conversation_connectors', 'conquest');
         } else if (targetTab === 'speech') {
-            await startQuiz(SPEECH_A2_DECK.fileName, 'conquest');
+            await startQuiz(quizState.speechDeckName, 'conquest');
         } else {
             resetQuizSelection();
         }
@@ -1506,7 +1523,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (quizState.activeStudyTab === 'irregular' && quizState.irregularVerbMode) {
             quizState.irregularVerbSessions[quizState.irregularVerbMode] = currentSession;
         } else {
-            quizState.irregularVerbReturnTab = ['vocabulary', 'pareto', 'speech']
+            quizState.irregularVerbReturnTab = ['vocabulary', 'connectors', 'pareto', 'sentences', 'dark', 'speech']
                 .includes(quizState.activeStudyTab)
                 ? quizState.activeStudyTab
                 : 'vocabulary';
@@ -1631,6 +1648,36 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    async function switchSpeechDeck(deckName) {
+        if (!SPEECH_DECK_NAMES.has(deckName)) {
+            return;
+        }
+
+        if (quizState.activeStudyTab !== 'speech') {
+            quizState.speechDeckName = deckName;
+            await switchStudyTab('speech');
+            return;
+        }
+
+        if (deckName === quizState.speechDeckName && quizState.deckName === deckName) {
+            return;
+        }
+
+        stopAudioPlayback();
+        if (SPEECH_DECK_NAMES.has(quizState.deckName)) {
+            quizState.speechDeckSessions[quizState.speechDeckName] = captureQuizRuntimeState();
+        }
+        quizState.speechDeckName = deckName;
+        updateStudyTabUI();
+
+        const savedSession = quizState.speechDeckSessions[deckName];
+        if (savedSession) {
+            restoreQuizRuntimeState(savedSession);
+        } else {
+            await startQuiz(deckName, 'conquest');
+        }
+    }
+
     function captureSessionSnapshot() {
         return {
             version: SAVE_FILE_VERSION,
@@ -1654,6 +1701,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 paretoPatternFrame: quizState.paretoPatternFrame,
                 sentenceDeckName: quizState.sentenceDeckName,
                 darkDeckName: quizState.darkDeckName,
+                speechDeckName: quizState.speechDeckName,
                 pokemonModeActive: quizState.pokemonModeActive,
                 selectedDeck: deckSelectorEl.value,
                 sidePanelOpen: sidePanel.classList.contains('open'),
@@ -1734,6 +1782,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         quizState.activeStudyTab === 'dark' && deckName === quizState.darkDeckName ? null : session,
                     ])
                 ),
+                speechDeckSessions: Object.fromEntries(
+                    Object.entries(quizState.speechDeckSessions).map(([deckName, session]) => [
+                        deckName,
+                        quizState.activeStudyTab === 'speech' && deckName === quizState.speechDeckName ? null : session,
+                    ])
+                ),
                 irregularVerbSessions: Object.fromEntries(
                     Object.entries(quizState.irregularVerbSessions).map(([mode, session]) => [
                         mode,
@@ -1785,11 +1839,11 @@ document.addEventListener('DOMContentLoaded', () => {
         quizState.irregularVerbMode = IRREGULAR_VERB_MODES.has(settings.irregularVerbMode)
             ? settings.irregularVerbMode
             : null;
-        quizState.irregularVerbReturnTab = ['vocabulary', 'pareto', 'speech']
+        quizState.irregularVerbReturnTab = ['vocabulary', 'connectors', 'pareto', 'sentences', 'dark', 'speech']
             .includes(settings.irregularVerbReturnTab)
             ? settings.irregularVerbReturnTab
             : 'vocabulary';
-        quizState.activeStudyTab = ['vocabulary', 'pareto', 'irregular', 'speech'].includes(settings.activeStudyTab)
+        quizState.activeStudyTab = ['vocabulary', 'connectors', 'pareto', 'sentences', 'dark', 'irregular', 'speech'].includes(settings.activeStudyTab)
             && (settings.activeStudyTab !== 'irregular' || quizState.irregularVerbMode)
             ? settings.activeStudyTab
             : 'vocabulary';
@@ -1805,6 +1859,9 @@ document.addEventListener('DOMContentLoaded', () => {
         quizState.darkDeckName = DARK_DECK_NAMES.has(settings.darkDeckName)
             ? settings.darkDeckName
             : 'dark_s01e01_understand';
+        quizState.speechDeckName = SPEECH_DECK_NAMES.has(settings.speechDeckName)
+            ? settings.speechDeckName
+            : 'speech_a2';
         quizState.studyTabSessions = {
             vocabulary: snapshot.studyTabs?.vocabulary || null,
             connectors: snapshot.studyTabs?.connectors || null,
@@ -1830,6 +1887,12 @@ document.addEventListener('DOMContentLoaded', () => {
         quizState.darkDeckSessions = {
             dark_s01e01_understand: snapshot.studyTabs?.darkDeckSessions?.dark_s01e01_understand || null,
             dark_s01e01_recall: snapshot.studyTabs?.darkDeckSessions?.dark_s01e01_recall || null,
+        };
+        quizState.speechDeckSessions = {
+            speech_a2: snapshot.studyTabs?.speechDeckSessions
+                ? snapshot.studyTabs.speechDeckSessions.speech_a2 || null
+                : snapshot.studyTabs?.speech || null,
+            speech_connectors: snapshot.studyTabs?.speechDeckSessions?.speech_connectors || null,
         };
         quizState.irregularVerbSessions = {
             meaning: snapshot.studyTabs?.irregularVerbSessions?.meaning || null,
@@ -2647,7 +2710,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateAudioButtons(card) {
         const wordAudioVisible = Boolean(card && card.wordAudioUrl);
-        const sentenceAudioVisible = Boolean(card && (card.sentenceAudioUrl || card.speechFallbackText)
+        const sentenceAudioVisible = Boolean(card && card.sentenceAudioUrl
             && (!isSpeechCard(card) || quizState.isShowingAnswer));
 
         playWordAudioBtn.textContent = 'Play Word';
@@ -2661,7 +2724,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function stopAudioPlayback() {
         quizState.audio.pause();
         quizState.audio.currentTime = 0;
-        window.speechSynthesis?.cancel();
     }
 
     function playAudio(url) {
@@ -2684,16 +2746,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function playCurrentSentenceAudio() {
-        if (isSpeechCard(quizState.currentCard) && quizState.currentCard.speechFallbackText) {
-            if (!window.speechSynthesis || typeof SpeechSynthesisUtterance === 'undefined') {
-                return;
-            }
-            stopAudioPlayback();
-            const utterance = new SpeechSynthesisUtterance(quizState.currentCard.speechFallbackText);
-            utterance.lang = 'de-DE';
-            window.speechSynthesis?.speak(utterance);
-            return;
-        }
         playAudio(quizState.currentCard?.sentenceAudioUrl);
     }
 
@@ -2965,7 +3017,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }))
                 .sort((a, b) => String(b.importedAt || '').localeCompare(String(a.importedAt || '')));
 
-            quizState.decks = [...builtInDecksWithCounts, ...IRREGULAR_VERB_DECKS, SPEECH_A2_DECK, ...PARETO_DECKS, ...customDeckEntries];
+            quizState.decks = [...builtInDecksWithCounts, ...CONNECTOR_DECKS, ...IRREGULAR_VERB_DECKS, ...SPEECH_DECKS, ...PARETO_DECKS, ...SENTENCE_DECKS, ...DARK_DECKS, ...customDeckEntries];
             deckSelectorEl.innerHTML = '<option value="">-- Select Deck --</option>';
 
             const appendDeckOptions = (decks, groupLabel) => {
@@ -3396,7 +3448,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        speechA2DeckBtnEl.addEventListener('click', () => switchStudyTab('speech'));
+        speechA2DeckBtnEl.addEventListener('click', () => switchSpeechDeck('speech_a2'));
+        speechConnectorsDeckBtnEl.addEventListener('click', () => switchSpeechDeck('speech_connectors'));
 
         modalVerbTenseToggleEls.forEach(toggleEl => {
             toggleEl.addEventListener('change', () => {

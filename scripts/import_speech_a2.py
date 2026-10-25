@@ -73,7 +73,6 @@ def read_cards(archive, media_by_name):
             existing = by_german[key]
             if sound and not existing.get("sentenceAudioUrl"):
                 existing["sentenceAudioUrl"] = f"audio/speech_a2/{media_by_name[sound]}.mp3"
-                existing.pop("speechFallbackText", None)
                 used_media.add(sound)
             continue
 
@@ -86,8 +85,6 @@ def read_cards(archive, media_by_name):
         if sound:
             card["sentenceAudioUrl"] = f"audio/speech_a2/{media_by_name[sound]}.mp3"
             used_media.add(sound)
-        else:
-            card["speechFallbackText"] = german
         cards.append(card)
         by_german[key] = card
 

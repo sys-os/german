@@ -1057,7 +1057,8 @@ body.modalverb-mode-active #stats-container {
     text-align: center;
 }
 
-#speech-a2-deck-btn.active {
+#speech-a2-deck-btn.active,
+#speech-connectors-deck-btn.active {
     border-color: var(--primary-color);
     color: var(--text-color);
 }

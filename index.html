@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>German Quiz</title>
     <link rel="icon" href="data:,">
-    <link rel="stylesheet" href="css/style.css?v=speech-a2-1">
+    <link rel="stylesheet" href="css/style.css?v=speech-connectors-1">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -13,7 +13,10 @@
     <button id="menu-toggle-btn">☰</button>
     <nav id="study-tabs" role="tablist" aria-label="Study sections">
         <button class="study-tab active" type="button" role="tab" data-study-tab="vocabulary" aria-selected="true">Vocabulary</button>
+        <button class="study-tab" type="button" role="tab" data-study-tab="connectors" aria-selected="false">Connectors</button>
         <button class="study-tab" type="button" role="tab" data-study-tab="pareto" aria-selected="false">Pareto</button>
+        <button class="study-tab" type="button" role="tab" data-study-tab="sentences" aria-selected="false">Sentences</button>
+        <button class="study-tab" type="button" role="tab" data-study-tab="dark" aria-selected="false">Dark S1E1</button>
     </nav>
     <nav id="connector-mode-tabs" class="subdeck-tabs" role="tablist" aria-label="Connector practice direction" hidden>
         <button class="connector-mode-tab active" type="button" role="tab" data-connector-direction="german-to-english" aria-selected="true">German to English</button>
@@ -222,6 +225,7 @@
                     <div id="speech-settings" class="settings-folder-content" hidden>
                         <div class="settings-group compact-settings-group">
                             <button id="speech-a2-deck-btn" class="secondary-btn" type="button" aria-pressed="false">A2</button>
+                            <button id="speech-connectors-deck-btn" class="secondary-btn" type="button" aria-pressed="false">Connectors</button>
                         </div>
                     </div>
                 </section>
@@ -325,6 +329,6 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=german-input-1"></script>
+    <script src="js/main.js?v=speech-connectors-1"></script>
 </body>
 </html>

@@ -1,0 +1,834 @@
+{
+  "name": "Speech - Connectors",
+  "source": "https://ankiweb.net/shared/info/2297788233",
+  "cards": [
+    {
+      "id": "speech-connectors-1331586596080",
+      "question": "truth be told",
+      "answer": [
+        "Ehrlich gesagt"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 0
+    },
+    {
+      "id": "speech-connectors-1331586596081",
+      "question": "I presume that",
+      "answer": [
+        "Ich vermute, dass"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 1
+    },
+    {
+      "id": "speech-connectors-1331586596082",
+      "question": "I hope that",
+      "answer": [
+        "Ich hoffe, dass"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 2
+    },
+    {
+      "id": "speech-connectors-1331586596083",
+      "question": "in my opinion",
+      "answer": [
+        "Meiner Meinung nach"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 3
+    },
+    {
+      "id": "speech-connectors-1331586596084",
+      "question": "if that is true",
+      "answer": [
+        "Wenn das wahr ist"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 4
+    },
+    {
+      "id": "speech-connectors-1331586596085",
+      "question": "I don't know exactly",
+      "answer": [
+        "Ich weiß nicht genau"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 5
+    },
+    {
+      "id": "speech-connectors-1331586596086",
+      "question": "I would like to think that",
+      "answer": [
+        "Ich denke, dass"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 6
+    },
+    {
+      "id": "speech-connectors-1331586596087",
+      "question": "the way I see it is that",
+      "answer": [
+        "So wie ich das sehe, ..."
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 7
+    },
+    {
+      "id": "speech-connectors-1331586596088",
+      "question": "as you may know",
+      "answer": [
+        "Wie du vielleicht weißt"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 8
+    },
+    {
+      "id": "speech-connectors-1331586596089",
+      "question": "I don't have a big interest in that",
+      "answer": [
+        "Ich habe kein großes Interesse daran"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 9
+    },
+    {
+      "id": "speech-connectors-1331586596090",
+      "question": "if I understand correctly",
+      "answer": [
+        "Wenn ich das richtig verstanden habe"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 10
+    },
+    {
+      "id": "speech-connectors-1331586596091",
+      "question": "as you already know",
+      "answer": [
+        "Wie du schon weißt"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 11
+    },
+    {
+      "id": "speech-connectors-1331586596092",
+      "question": "that isn't such a big problem",
+      "answer": [
+        "Das ist kein großes Problem"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 12
+    },
+    {
+      "id": "speech-connectors-1331586596093",
+      "question": "that is a matter of opinion",
+      "answer": [
+        "Das ist eine Frage der Meinung"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 13
+    },
+    {
+      "id": "speech-connectors-1331586596094",
+      "question": "as far as I know",
+      "answer": [
+        "Soweit ich weiß"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 14
+    },
+    {
+      "id": "speech-connectors-1331586596095",
+      "question": "I have the impression that",
+      "answer": [
+        "Ich habe den Eindruck, dass"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 15
+    },
+    {
+      "id": "speech-connectors-1331586596096",
+      "question": "it is usually true that",
+      "answer": [
+        "Es ist in der Regel wahr, dass"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 16
+    },
+    {
+      "id": "speech-connectors-1331586596097",
+      "question": "you never know, but",
+      "answer": [
+        "Man weiß ja nie, aber"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 17
+    },
+    {
+      "id": "speech-connectors-1331586596098",
+      "question": "I haven't thought about it before, but",
+      "answer": [
+        "Darüber habe ich noch nicht nachgedacht, aber"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 18
+    },
+    {
+      "id": "speech-connectors-1331586596099",
+      "question": "if I am not mistaken",
+      "answer": [
+        "Wenn ich mich nicht irre"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 19
+    },
+    {
+      "id": "speech-connectors-1331586596100",
+      "question": "I am not certain whether",
+      "answer": [
+        "Ich bin mir nicht sicher, ob"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 20
+    },
+    {
+      "id": "speech-connectors-1331586596101",
+      "question": "like every other man",
+      "answer": [
+        "Wie jeder andere Mensch"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 21
+    },
+    {
+      "id": "speech-connectors-1331586596102",
+      "question": "I have my own opinion on it, but",
+      "answer": [
+        "Ich habe meine eigene Meinung dazu, aber"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 22
+    },
+    {
+      "id": "speech-connectors-1331586596103",
+      "question": "I am not such an expert, but",
+      "answer": [
+        "Ich bin nicht so ein Experte, aber"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 23
+    },
+    {
+      "id": "speech-connectors-1331586596104",
+      "question": "understandably",
+      "answer": [
+        "Verständlicherweise"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 24
+    },
+    {
+      "id": "speech-connectors-1331586596105",
+      "question": "frankly speaking",
+      "answer": [
+        "Ehrlich gesagt"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 25
+    },
+    {
+      "id": "speech-connectors-1331586596106",
+      "question": "between you and me",
+      "answer": [
+        "Zwischen dir und mir"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 26
+    },
+    {
+      "id": "speech-connectors-1331586596107",
+      "question": "anyway",
+      "answer": [
+        "Na ja"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 27
+    },
+    {
+      "id": "speech-connectors-1331586596108",
+      "question": "well then",
+      "answer": [
+        "Na dann"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 28
+    },
+    {
+      "id": "speech-connectors-1331586596109",
+      "question": "well, as a matter of fact",
+      "answer": [
+        "Nun, tatsächlich"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 29
+    },
+    {
+      "id": "speech-connectors-1331586596110",
+      "question": "how can I put it?",
+      "answer": [
+        "wie kann ich es sagen?"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 30
+    },
+    {
+      "id": "speech-connectors-1331586596111",
+      "question": "I must say that",
+      "answer": [
+        "Ich muss sagen, dass"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 31
+    },
+    {
+      "id": "speech-connectors-1331586596112",
+      "question": "firstly",
+      "answer": [
+        "Erstens"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 32
+    },
+    {
+      "id": "speech-connectors-1331586596113",
+      "question": "secondly",
+      "answer": [
+        "Zweitens"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 33
+    },
+    {
+      "id": "speech-connectors-1331586596114",
+      "question": "I would like you to know that",
+      "answer": [
+        "Ich möchte, dass du weißt, dass"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 34
+    },
+    {
+      "id": "speech-connectors-1331586596115",
+      "question": "I am afraid that",
+      "answer": [
+        "Ich fürchte, dass"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 35
+    },
+    {
+      "id": "speech-connectors-1331586596116",
+      "question": "now and then it seems to me that",
+      "answer": [
+        "Hier und da scheint es mir, dass"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 36
+    },
+    {
+      "id": "speech-connectors-1331586596117",
+      "question": "after all",
+      "answer": [
+        "Immerhin"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 37
+    },
+    {
+      "id": "speech-connectors-1331586596118",
+      "question": "as far as I am concerned",
+      "answer": [
+        "So weit es mich betrifft"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 38
+    },
+    {
+      "id": "speech-connectors-1331586596119",
+      "question": "more and more",
+      "answer": [
+        "Immer mehr"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 39
+    },
+    {
+      "id": "speech-connectors-1331586596120",
+      "question": "actually",
+      "answer": [
+        "Tatsächlich"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 40
+    },
+    {
+      "id": "speech-connectors-1331586596121",
+      "question": "all joking aside",
+      "answer": [
+        "Spaß beiseite"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 41
+    },
+    {
+      "id": "speech-connectors-1331586596122",
+      "question": "now seriously",
+      "answer": [
+        "Im Ernst"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 42
+    },
+    {
+      "id": "speech-connectors-1331586596123",
+      "question": "one hundred percent",
+      "answer": [
+        "Hundertprozentig"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 43
+    },
+    {
+      "id": "speech-connectors-1331586596124",
+      "question": "without question",
+      "answer": [
+        "Ohne Frage"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 44
+    },
+    {
+      "id": "speech-connectors-1331586596125",
+      "question": "exactly right",
+      "answer": [
+        "Genau richtig"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 45
+    },
+    {
+      "id": "speech-connectors-1331586596126",
+      "question": "most certainly",
+      "answer": [
+        "Ganz sicher"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 46
+    },
+    {
+      "id": "speech-connectors-1331586596127",
+      "question": "without doubt",
+      "answer": [
+        "Ohne Zweifel"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 47
+    },
+    {
+      "id": "speech-connectors-1331586596128",
+      "question": "in no case",
+      "answer": [
+        "In keinem Fall"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 48
+    },
+    {
+      "id": "speech-connectors-1331586596129",
+      "question": "that isn't true at all",
+      "answer": [
+        "Das ist überhaupt nicht wahr"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 49
+    },
+    {
+      "id": "speech-connectors-1331586596130",
+      "question": "that is an exaggeration",
+      "answer": [
+        "Das ist eine Übertreibung"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 50
+    },
+    {
+      "id": "speech-connectors-1331586596131",
+      "question": "in principle that is true, but",
+      "answer": [
+        "Im Prinzip ist das wahr, aber"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 51
+    },
+    {
+      "id": "speech-connectors-1331586596132",
+      "question": "admittedly that is true, but",
+      "answer": [
+        "Zugegeben, das ist wahr, aber"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 52
+    },
+    {
+      "id": "speech-connectors-1331586596133",
+      "question": "that's one way to say it",
+      "answer": [
+        "Das kann man so sagen"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 53
+    },
+    {
+      "id": "speech-connectors-1331586596134",
+      "question": "only up to a certain point",
+      "answer": [
+        "Nur bis zu einem gewissen Grade"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 54
+    },
+    {
+      "id": "speech-connectors-1331586596135",
+      "question": "certainly, why not?",
+      "answer": [
+        "Sicherlich, warum nicht?"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 55
+    },
+    {
+      "id": "speech-connectors-1331586596136",
+      "question": "I agree",
+      "answer": [
+        "Ich bin damit einverstanden"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 56
+    },
+    {
+      "id": "speech-connectors-1331586596137",
+      "question": "to be more precise",
+      "answer": [
+        "Um genauer zu sein"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 57
+    },
+    {
+      "id": "speech-connectors-1331586596138",
+      "question": "and what's more",
+      "answer": [
+        "Und außerdem"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 58
+    },
+    {
+      "id": "speech-connectors-1331586596139",
+      "question": "while I am already talking about it",
+      "answer": [
+        "Da wir gerade darüber sprechen"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 59
+    },
+    {
+      "id": "speech-connectors-1331586596140",
+      "question": "I would like to emphasise that",
+      "answer": [
+        "Ich möchte betonen, dass"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 60
+    },
+    {
+      "id": "speech-connectors-1331586596141",
+      "question": "should I explain in greater detail?",
+      "answer": [
+        "Soll ich das näher erläutern?"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 61
+    },
+    {
+      "id": "speech-connectors-1331586596142",
+      "question": "allow me to say it another way",
+      "answer": [
+        "Lass es mich anders ausdrücken"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 62
+    },
+    {
+      "id": "speech-connectors-1331586596143",
+      "question": "that is to say",
+      "answer": [
+        "Das heißt"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 63
+    },
+    {
+      "id": "speech-connectors-1331586596144",
+      "question": "and more specifically",
+      "answer": [
+        "Und insbesondere"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 64
+    },
+    {
+      "id": "speech-connectors-1331586596145",
+      "question": "nevertheless",
+      "answer": [
+        "Dennoch"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 65
+    },
+    {
+      "id": "speech-connectors-1331586596146",
+      "question": "even though",
+      "answer": [
+        "Obwohl"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 66
+    },
+    {
+      "id": "speech-connectors-1331586596147",
+      "question": "that sounds like",
+      "answer": [
+        "Das klingt wie"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 67
+    },
+    {
+      "id": "speech-connectors-1331586596148",
+      "question": "and that is why",
+      "answer": [
+        "Deshalb"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 68
+    },
+    {
+      "id": "speech-connectors-1331586596149",
+      "question": "in other words",
+      "answer": [
+        "Mit anderen Worten"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 69
+    },
+    {
+      "id": "speech-connectors-1331586596150",
+      "question": "to say it another way",
+      "answer": [
+        "Anders ausgedrückt"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 70
+    },
+    {
+      "id": "speech-connectors-1331586596151",
+      "question": "she said something like",
+      "answer": [
+        "Sie sagte so etwas wie"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 71
+    },
+    {
+      "id": "speech-connectors-1331586596152",
+      "question": "my wife pointed out that",
+      "answer": [
+        "Meine Frau wies darauf hin, dass"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 72
+    },
+    {
+      "id": "speech-connectors-1331586596153",
+      "question": "recently, I heard that",
+      "answer": [
+        "Kürzlich hörte ich, dass"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 73
+    },
+    {
+      "id": "speech-connectors-1331586596154",
+      "question": "my better half said",
+      "answer": [
+        "Meine bessere Hälfte sagte"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 74
+    },
+    {
+      "id": "speech-connectors-1331586596155",
+      "question": "now it occurs to me that",
+      "answer": [
+        "Jetzt fällt mir ein, dass"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 75
+    },
+    {
+      "id": "speech-connectors-1331586596156",
+      "question": "by the way",
+      "answer": [
+        "Übrigens"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 76
+    },
+    {
+      "id": "speech-connectors-1331586596157",
+      "question": "I have an interesting story about it",
+      "answer": [
+        "Ich habe eine interessante Geschichte dazu"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 77
+    },
+    {
+      "id": "speech-connectors-1331586596158",
+      "question": "and besides that",
+      "answer": [
+        "Und außerdem"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 78
+    },
+    {
+      "id": "speech-connectors-1331586596159",
+      "question": "oh, I nearly forgot",
+      "answer": [
+        "Oh, fast hätte ich vergessen"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 79
+    },
+    {
+      "id": "speech-connectors-1331586596160",
+      "question": "and one more thing",
+      "answer": [
+        "Und noch eins"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 80
+    },
+    {
+      "id": "speech-connectors-1331586596161",
+      "question": "on the other hand",
+      "answer": [
+        "Auf der anderen Seite"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 81
+    },
+    {
+      "id": "speech-connectors-1331586596162",
+      "question": "that is all there is to say",
+      "answer": [
+        "Das ist alles, was es zu sagen gibt"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 82
+    },
+    {
+      "id": "speech-connectors-1331586596163",
+      "question": "that is all for now",
+      "answer": [
+        "Das war's fürs Erste"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 83
+    },
+    {
+      "id": "speech-connectors-1331586596164",
+      "question": "to sum up",
+      "answer": [
+        "Zusammenfassend"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 84
+    },
+    {
+      "id": "speech-connectors-1331586596165",
+      "question": "and there is the problem",
+      "answer": [
+        "Und es gibt das Problem, dass"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 85
+    },
+    {
+      "id": "speech-connectors-1331586596166",
+      "question": "I hope it is only a question of time",
+      "answer": [
+        "Ich hoffe, es ist nur eine Frage der Zeit"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 86
+    },
+    {
+      "id": "speech-connectors-1331586596167",
+      "question": "that remains to be seen",
+      "answer": [
+        "Das bleibt abzuwarten"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 87
+    },
+    {
+      "id": "speech-connectors-1331586596168",
+      "question": "tell me",
+      "answer": [
+        "Sag' mal"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 88
+    },
+    {
+      "id": "speech-connectors-1331586596169",
+      "question": "Look at this",
+      "answer": [
+        "Guck' mal"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 89
+    },
+    {
+      "id": "speech-connectors-1331586596170",
+      "question": "would you be interested in us talking about something else?",
+      "answer": [
+        "Möchtest du, dass wir über etwas anderes sprechen?"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 90
+    },
+    {
+      "id": "speech-connectors-1331586596171",
+      "question": "and what do you think?",
+      "answer": [
+        "Und was meinst du?"
+      ],
+      "speechDeckType": "connectors",
+      "sourceOrder": 91
+    }
+  ]
+}
