@@ -840,6 +840,56 @@ document.addEventListener('DOMContentLoaded', () => {
             : normalizeAnswer(value);
     }
 
+    function expectsGermanAnswer(card) {
+        if (!card) return false;
+        if (isParetoCard(card) || isSpeechCard(card)) return true;
+        if (card.sentenceDeckType === 'speak' || card.darkDeckType === 'recall') return true;
+        if (isConnectorDeckCard(card)) return isReverseWordModeActive();
+        if (isIrregularVerbCard(card)) return card.irregularVerbMode !== 'meaning';
+        return isReverseWordModeActive() || isSentenceTranslationModeActive() || isCasePracticeModeActive();
+    }
+
+    function matchesGermanAnswer(input, expected, normalize) {
+        const target = normalize(expected);
+        if (normalize(input) === target) return true;
+
+        // Keep uppercase SS distinct from lowercase ss before case folding.
+        const typed = normalize(String(input).replace(/SS/g, '\uE000'));
+        let inputIndex = 0;
+        let targetIndex = 0;
+        while (inputIndex < typed.length && targetIndex < target.length) {
+            if (typed[inputIndex] === '\uE000') {
+                if (target[targetIndex] === 'ß') {
+                    inputIndex++;
+                    targetIndex++;
+                    continue;
+                }
+                if (target.slice(targetIndex, targetIndex + 2) === 'ss') {
+                    inputIndex++;
+                    targetIndex += 2;
+                    continue;
+                }
+            }
+            const targetChar = target[targetIndex];
+            const typedChar = typed[inputIndex];
+            if (typedChar !== targetChar
+                && !(targetChar === 'ä' && typedChar === 'a')
+                && !(targetChar === 'ö' && typedChar === 'o')) {
+                return false;
+            }
+            inputIndex++;
+            targetIndex++;
+        }
+        return inputIndex === typed.length && targetIndex === target.length;
+    }
+
+    function matchesCurrentAnswer(input, expected) {
+        if (!expectsGermanAnswer(quizState.currentCard)) {
+            return normalizeInputForCurrentMode(input) === normalizeInputForCurrentMode(expected);
+        }
+        return matchesGermanAnswer(input, expected, normalizeInputForCurrentMode);
+    }
+
     function getQuestionPrompt(card) {
         if (!card) {
             return '';
@@ -2053,9 +2103,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const normalizedUserAnswer = normalizeInputForCurrentMode(userAnswer);
         const isCorrect = getAcceptedAnswers(quizState.currentCard)
-            .some(answer => normalizeInputForCurrentMode(answer) === normalizedUserAnswer);
+            .some(answer => matchesCurrentAnswer(userAnswer, answer));
         
         if (isCorrect) {
             showAndAdvance(true);
@@ -2866,7 +2915,7 @@ document.addEventListener('DOMContentLoaded', () => {
         practiceState.values[cellKey] = inputEl.value;
         practiceState.activeCellKey = cellKey;
 
-        if (normalizeAnswer(inputEl.value) !== normalizeAnswer(expectedAnswer)) {
+        if (!matchesGermanAnswer(inputEl.value, expectedAnswer, normalizeAnswer)) {
             const cellEl = inputEl.closest('.modalverb-answer-cell');
             cellEl?.classList.remove('incorrect');
             void cellEl?.offsetWidth;
@@ -3221,9 +3270,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     // This handles submitting an answer that might be incorrect.
                     // The 'input' event listener will have already handled the correct case.
                     const userAnswer = answerInputEl.value.trim();
-                    const normalizedUserAnswer = normalizeInputForCurrentMode(userAnswer);
                     const isCorrect = getAcceptedAnswers(quizState.currentCard)
-                        .some(answer => normalizeInputForCurrentMode(answer) === normalizedUserAnswer);
+                        .some(answer => matchesCurrentAnswer(userAnswer, answer));
 
                     if (!isCorrect) {
                         showAndAdvance(false);
