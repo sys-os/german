@@ -1,0 +1,1400 @@
+{
+  "name": "Speech A2",
+  "cards": [
+    {
+      "id": "speech-a2-1749458846151",
+      "question": "Hello",
+      "answer": [
+        "Hallo"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/1.mp3"
+    },
+    {
+      "id": "speech-a2-1749458888630",
+      "question": "How are you?",
+      "answer": [
+        "Wie geht es dir?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/109.mp3"
+    },
+    {
+      "id": "speech-a2-1749458923863",
+      "question": "I am good! Thank you!",
+      "answer": [
+        "Mir geht es gut! Danke!"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/20.mp3"
+    },
+    {
+      "id": "speech-a2-1749459014764",
+      "question": "What is your name?",
+      "answer": [
+        "Wie heißt du?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/105.mp3"
+    },
+    {
+      "id": "speech-a2-1749459073647",
+      "question": "What's your name?",
+      "answer": [
+        "Wie heißen Sie?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/95.mp3"
+    },
+    {
+      "id": "speech-a2-1749459208929",
+      "question": "Where are you from?",
+      "answer": [
+        "Woher kommst du?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/149.mp3"
+    },
+    {
+      "id": "speech-a2-1749459241513",
+      "question": "Where do you live?",
+      "answer": [
+        "Wo wohnst du?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/131.mp3"
+    },
+    {
+      "id": "speech-a2-1749459292480",
+      "question": "I live in the UK",
+      "answer": [
+        "Ich lebe in Großbritannien"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/12.mp3"
+    },
+    {
+      "id": "speech-a2-1749459417513",
+      "question": "I speak German",
+      "answer": [
+        "Ich spreche Deutsch"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/123.mp3"
+    },
+    {
+      "id": "speech-a2-1749459458280",
+      "question": "I speak a little German",
+      "answer": [
+        "Ich spreche ein wenig Deutsch"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/73.mp3"
+    },
+    {
+      "id": "speech-a2-1749459506946",
+      "question": "I only speak a little German",
+      "answer": [
+        "Ich spreche nur ein bisschen Deutsch"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/140.mp3"
+    },
+    {
+      "id": "speech-a2-1749459561247",
+      "question": "Do you speak English?",
+      "answer": [
+        "Sprechen Sie Englisch?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/89.mp3"
+    },
+    {
+      "id": "speech-a2-1749459615913",
+      "question": "I speak English, and a little German",
+      "answer": [
+        "Ich spreche Englisch, und ein wenig Deutsch"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/65.mp3"
+    },
+    {
+      "id": "speech-a2-1749459656963",
+      "question": "Excuse me",
+      "answer": [
+        "Verzeihung"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/11.mp3"
+    },
+    {
+      "id": "speech-a2-1749459685813",
+      "question": "Sorry",
+      "answer": [
+        "Entschuldigung"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/139.mp3"
+    },
+    {
+      "id": "speech-a2-1749459717246",
+      "question": "Excuse me, where is the toilet?",
+      "answer": [
+        "Entschuldigung, wo ist die Toilette?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/71.mp3"
+    },
+    {
+      "id": "speech-a2-1749459745496",
+      "question": "Do you have the time?",
+      "answer": [
+        "Hast du Zeit?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/62.mp3"
+    },
+    {
+      "id": "speech-a2-1749459795980",
+      "question": "Would you like something to drink?",
+      "answer": [
+        "Möchten Sie etwas trinken?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/59.mp3"
+    },
+    {
+      "id": "speech-a2-1749459818713",
+      "question": "Would you like something to eat?",
+      "answer": [
+        "Möchten Sie etwas essen?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/43.mp3"
+    },
+    {
+      "id": "speech-a2-1749459866712",
+      "question": "How much does it cost, please?",
+      "answer": [
+        "Wie viel kostet das, bitte?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/68.mp3"
+    },
+    {
+      "id": "speech-a2-1749459902147",
+      "question": "How do you say...",
+      "answer": [
+        "Wie sagt man..."
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/76.mp3"
+    },
+    {
+      "id": "speech-a2-1749459926229",
+      "question": "Maybe",
+      "answer": [
+        "Vielleicht"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/3.mp3"
+    },
+    {
+      "id": "speech-a2-1749459960563",
+      "question": "Sometimes",
+      "answer": [
+        "Manchmal"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/88.mp3"
+    },
+    {
+      "id": "speech-a2-1749459978529",
+      "question": "Always",
+      "answer": [
+        "immer"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/63.mp3"
+    },
+    {
+      "id": "speech-a2-1749460039677",
+      "question": "Would you like a bag?",
+      "answer": [
+        "Möchten Sie eine Tasche?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/60.mp3"
+    },
+    {
+      "id": "speech-a2-1749460053580",
+      "question": "Do you need a bag?",
+      "answer": [
+        "Brauchst du eine Tasche?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/2.mp3"
+    },
+    {
+      "id": "speech-a2-1749460092913",
+      "question": "Do you want a receipt?",
+      "answer": [
+        "Möchten Sie eine Quittung"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/90.mp3"
+    },
+    {
+      "id": "speech-a2-1749460119396",
+      "question": "Could you help me, please?",
+      "answer": [
+        "Können Sie mir bitte helfen?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/16.mp3"
+    },
+    {
+      "id": "speech-a2-1749460145646",
+      "question": "What do you do in your free time?",
+      "answer": [
+        "Was machst du in deiner Freizeit?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/51.mp3"
+    },
+    {
+      "id": "speech-a2-1749460224312",
+      "question": "Could you speak slowly, please?",
+      "answer": [
+        "Könnten Sie bitte langsam sprechen?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/115.mp3"
+    },
+    {
+      "id": "speech-a2-1749461045912",
+      "question": "In my free time...",
+      "answer": [
+        "In meiner Freizeit"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/101.mp3"
+    },
+    {
+      "id": "speech-a2-1749461084896",
+      "question": "I read books",
+      "answer": [
+        "Ich lese gerne Bücher"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/13.mp3"
+    },
+    {
+      "id": "speech-a2-1749461108946",
+      "question": "I listen to music",
+      "answer": [
+        "Ich höre gerne Musik"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/44.mp3"
+    },
+    {
+      "id": "speech-a2-1749461161279",
+      "question": "I play Guitar",
+      "answer": [
+        "Ich spiele gerne Gitarre"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/21.mp3"
+    },
+    {
+      "id": "speech-a2-1749461186495",
+      "question": "I watch Sports",
+      "answer": [
+        "Ich schaue gerne Sport"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/47.mp3"
+    },
+    {
+      "id": "speech-a2-1749461224896",
+      "question": "I love Formula 1",
+      "answer": [
+        "Ich liebe die Formel 1"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/124.mp3"
+    },
+    {
+      "id": "speech-a2-1749461248312",
+      "question": "for how long?",
+      "answer": [
+        "für wie lange?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/45.mp3"
+    },
+    {
+      "id": "speech-a2-1749461289129",
+      "question": "I like it, because",
+      "answer": [
+        "Ich mag es, weil"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/7.mp3"
+    },
+    {
+      "id": "speech-a2-1749461316112",
+      "question": "And you?",
+      "answer": [
+        "Und du?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/100.mp3"
+    },
+    {
+      "id": "speech-a2-1749461445429",
+      "question": "What is your favourite food?",
+      "answer": [
+        "Was ist Ihr Lieblingsessen?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/35.mp3"
+    },
+    {
+      "id": "speech-a2-1749461494529",
+      "question": "That is also my favourite",
+      "answer": [
+        "Das ist auch mein Favorit"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/117.mp3"
+    },
+    {
+      "id": "speech-a2-1749461614445",
+      "question": "I have never tried that",
+      "answer": [
+        "Das habe ich noch nie versucht"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/26.mp3"
+    },
+    {
+      "id": "speech-a2-1749461651195",
+      "question": "I have never tried that before",
+      "answer": [
+        "Das habe ich noch nie probiert"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/148.mp3"
+    },
+    {
+      "id": "speech-a2-1749461781212",
+      "question": "Where do you want to go?",
+      "answer": [
+        "Wohin willst du gehen?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/34.mp3"
+    },
+    {
+      "id": "speech-a2-1749461816508",
+      "question": "What are you doing today?",
+      "answer": [
+        "Was machst du heute?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/69.mp3"
+    },
+    {
+      "id": "speech-a2-1749462229879",
+      "question": "I am meeting my friend",
+      "answer": [
+        "Ich treffe meinen Freund"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/48.mp3"
+    },
+    {
+      "id": "speech-a2-1749462254378",
+      "question": "I am meeting my friends",
+      "answer": [
+        "Ich treffe meine Freunde"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/75.mp3"
+    },
+    {
+      "id": "speech-a2-1749462330712",
+      "question": "I am meeting my friends and going for some drinks",
+      "answer": [
+        "Ich treffe mich mit meinen Freunden und gehe dann etwas trinken"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/4.mp3"
+    },
+    {
+      "id": "speech-a2-1749462359212",
+      "question": "Do you want another?",
+      "answer": [
+        "Willst du noch eins?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/96.mp3"
+    },
+    {
+      "id": "speech-a2-1749462385895",
+      "question": "Should we go?",
+      "answer": [
+        "Sollen wir gehen?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/81.mp3"
+    },
+    {
+      "id": "speech-a2-1749462413762",
+      "question": "We should go!",
+      "answer": [
+        "Wir sollten gehen!"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/106.mp3"
+    },
+    {
+      "id": "speech-a2-1749462430278",
+      "question": "Where",
+      "answer": [
+        "Wo"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/153.mp3"
+    },
+    {
+      "id": "speech-a2-1749462460412",
+      "question": "What",
+      "answer": [
+        "Was"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/99.mp3"
+    },
+    {
+      "id": "speech-a2-1749462508394",
+      "question": "Why",
+      "answer": [
+        "Warum"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/36.mp3"
+    },
+    {
+      "id": "speech-a2-1749462544661",
+      "question": "If",
+      "answer": [
+        "Wenn"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/114.mp3"
+    },
+    {
+      "id": "speech-a2-1749462567345",
+      "question": "If you want to",
+      "answer": [
+        "Wenn Sie wollen"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/28.mp3"
+    },
+    {
+      "id": "speech-a2-1749462602728",
+      "question": "Are you there?",
+      "answer": [
+        "Bist du da?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/39.mp3"
+    },
+    {
+      "id": "speech-a2-1749462617478",
+      "question": "How long?",
+      "answer": [
+        "Wie lange?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/70.mp3"
+    },
+    {
+      "id": "speech-a2-1749462655845",
+      "question": "Can I buy one?",
+      "answer": [
+        "Könnte ich eins kaufen?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/29.mp3"
+    },
+    {
+      "id": "speech-a2-1749462682011",
+      "question": "Can I pay please?",
+      "answer": [
+        "Kann ich bitte bezahlen?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/135.mp3"
+    },
+    {
+      "id": "speech-a2-1749462703911",
+      "question": "Good night",
+      "answer": [
+        "Gute Nacht"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/104.mp3"
+    },
+    {
+      "id": "speech-a2-1749462715011",
+      "question": "Good morning",
+      "answer": [
+        "Guten Morgen"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/82.mp3"
+    },
+    {
+      "id": "speech-a2-1749462735698",
+      "question": "Good evening",
+      "answer": [
+        "Guten Abend"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/147.mp3"
+    },
+    {
+      "id": "speech-a2-1749462758845",
+      "question": "I hope so",
+      "answer": [
+        "Ich hoffe es"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/143.mp3"
+    },
+    {
+      "id": "speech-a2-1749462778094",
+      "question": "I woke up at...",
+      "answer": [
+        "Ich wachte auf um"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/61.mp3"
+    },
+    {
+      "id": "speech-a2-1749462815345",
+      "question": "I went to sleep at...",
+      "answer": [
+        "Ich ging schlafen um"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/53.mp3"
+    },
+    {
+      "id": "speech-a2-1749462939128",
+      "question": "Can I pay with cash?",
+      "answer": [
+        "Kann ich mit Bargeld bezahlen?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/141.mp3"
+    },
+    {
+      "id": "speech-a2-1749463008061",
+      "question": "the door",
+      "answer": [
+        "die Tür"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/32.mp3"
+    },
+    {
+      "id": "speech-a2-1749463036378",
+      "question": "the table",
+      "answer": [
+        "der Tisch"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/97.mp3"
+    },
+    {
+      "id": "speech-a2-1749463075561",
+      "question": "the car",
+      "answer": [
+        "das Auto"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/5.mp3"
+    },
+    {
+      "id": "speech-a2-1749463121545",
+      "question": "We can go in the car",
+      "answer": [
+        "Wir können mit dem Auto fahren"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/102.mp3"
+    },
+    {
+      "id": "speech-a2-1749463183361",
+      "question": "Hot",
+      "answer": [
+        "heiß"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/134.mp3"
+    },
+    {
+      "id": "speech-a2-1749463210578",
+      "question": "cold",
+      "answer": [
+        "kalt"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/98.mp3"
+    },
+    {
+      "id": "speech-a2-1749463253978",
+      "question": "It is so hot",
+      "answer": [
+        "Es ist so heiß"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/38.mp3"
+    },
+    {
+      "id": "speech-a2-1749463279928",
+      "question": "It is so cold",
+      "answer": [
+        "Es ist so kalt"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/83.mp3"
+    },
+    {
+      "id": "speech-a2-1749463319378",
+      "question": "It is nice and sunny today",
+      "answer": [
+        "Heute ist es schön und sonnig"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/142.mp3"
+    },
+    {
+      "id": "speech-a2-1749463376544",
+      "question": "It's raining today",
+      "answer": [
+        "Heute regnet es"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/55.mp3"
+    },
+    {
+      "id": "speech-a2-1749463422796",
+      "question": "the 1st",
+      "answer": [
+        "der erste"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/58.mp3"
+    },
+    {
+      "id": "speech-a2-1749463455478",
+      "question": "the 2nd",
+      "answer": [
+        "der zweite"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/79.mp3"
+    },
+    {
+      "id": "speech-a2-1749463489644",
+      "question": "the 3rd",
+      "answer": [
+        "der dritte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/8.mp3"
+    },
+    {
+      "id": "speech-a2-1749463580578",
+      "question": "the 4th",
+      "answer": [
+        "der vierte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/118.mp3"
+    },
+    {
+      "id": "speech-a2-1749463589677",
+      "question": "the 5th",
+      "answer": [
+        "der fünfte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/6.mp3"
+    },
+    {
+      "id": "speech-a2-1749463619277",
+      "question": "the 6th",
+      "answer": [
+        "der sechste"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/80.mp3"
+    },
+    {
+      "id": "speech-a2-1749463640311",
+      "question": "the 7th",
+      "answer": [
+        "der siebte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/64.mp3"
+    },
+    {
+      "id": "speech-a2-1749463661911",
+      "question": "the 8th",
+      "answer": [
+        "der achte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/119.mp3"
+    },
+    {
+      "id": "speech-a2-1749463685011",
+      "question": "the 9th",
+      "answer": [
+        "der neunte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/129.mp3"
+    },
+    {
+      "id": "speech-a2-1749463723261",
+      "question": "the 10th",
+      "answer": [
+        "der zehnte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/24.mp3"
+    },
+    {
+      "id": "speech-a2-1749463743994",
+      "question": "the 11th",
+      "answer": [
+        "der elfte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/125.mp3"
+    },
+    {
+      "id": "speech-a2-1749463774694",
+      "question": "the 12th",
+      "answer": [
+        "der zwölfte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/121.mp3"
+    },
+    {
+      "id": "speech-a2-1749463861960",
+      "question": "the 13th",
+      "answer": [
+        "der dreizehnte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/40.mp3"
+    },
+    {
+      "id": "speech-a2-1749463915312",
+      "question": "the 14th",
+      "answer": [
+        "der vierzehnte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/14.mp3"
+    },
+    {
+      "id": "speech-a2-1749463923994",
+      "question": "the 15th",
+      "answer": [
+        "der fünfzehnte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/77.mp3"
+    },
+    {
+      "id": "speech-a2-1749463951594",
+      "question": "the 16th",
+      "answer": [
+        "der sechzehnte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/52.mp3"
+    },
+    {
+      "id": "speech-a2-1749464001177",
+      "question": "the 17th",
+      "answer": [
+        "der siebzehnte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/151.mp3"
+    },
+    {
+      "id": "speech-a2-1749464010577",
+      "question": "the 18th",
+      "answer": [
+        "der achtzehnte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/37.mp3"
+    },
+    {
+      "id": "speech-a2-1749464037777",
+      "question": "the 19th",
+      "answer": [
+        "das neunzehnte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/84.mp3"
+    },
+    {
+      "id": "speech-a2-1749464082260",
+      "question": "the 20th",
+      "answer": [
+        "der zwanzigste"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/152.mp3"
+    },
+    {
+      "id": "speech-a2-1749464094460",
+      "question": "the 21st",
+      "answer": [
+        "der einundzwanzigste"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/91.mp3"
+    },
+    {
+      "id": "speech-a2-1749464119377",
+      "question": "the 30th",
+      "answer": [
+        "der dreißigste"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/9.mp3"
+    },
+    {
+      "id": "speech-a2-1749464160693",
+      "question": "the 31st",
+      "answer": [
+        "der einunddreißigste"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/30.mp3"
+    },
+    {
+      "id": "speech-a2-1749464210677",
+      "question": "hundred",
+      "answer": [
+        "hundert"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/107.mp3"
+    },
+    {
+      "id": "speech-a2-1749464233744",
+      "question": "thousand",
+      "answer": [
+        "tausend"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/130.mp3"
+    },
+    {
+      "id": "speech-a2-1749464280710",
+      "question": "a million",
+      "answer": [
+        "eine Million"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/50.mp3"
+    },
+    {
+      "id": "speech-a2-1749464317493",
+      "question": "How old are you?",
+      "answer": [
+        "Wie alt bist du?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/57.mp3"
+    },
+    {
+      "id": "speech-a2-1749464348527",
+      "question": "Happy Birthday!",
+      "answer": [
+        "Alles Gute zum Geburtstag!"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/120.mp3"
+    },
+    {
+      "id": "speech-a2-1749464416860",
+      "question": "I am ... years old",
+      "answer": [
+        "Ich bin ... Jahre alt"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/133.mp3"
+    },
+    {
+      "id": "speech-a2-1749464448943",
+      "question": "day",
+      "answer": [
+        "Tag"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/46.mp3"
+    },
+    {
+      "id": "speech-a2-1749464465410",
+      "question": "month",
+      "answer": [
+        "Monat"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/10.mp3"
+    },
+    {
+      "id": "speech-a2-1749464487060",
+      "question": "Year",
+      "answer": [
+        "Jahr"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/136.mp3"
+    },
+    {
+      "id": "speech-a2-1749464507760",
+      "question": "Monday",
+      "answer": [
+        "Montag"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/110.mp3"
+    },
+    {
+      "id": "speech-a2-1749464580060",
+      "question": "Tuesday",
+      "answer": [
+        "Dienstag"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/15.mp3"
+    },
+    {
+      "id": "speech-a2-1749464604476",
+      "question": "Wednesday",
+      "answer": [
+        "Mittwoch"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/137.mp3"
+    },
+    {
+      "id": "speech-a2-1749464633943",
+      "question": "Thursday",
+      "answer": [
+        "Donnerstag"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/49.mp3"
+    },
+    {
+      "id": "speech-a2-1749464651077",
+      "question": "Friday",
+      "answer": [
+        "Freitag"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/126.mp3"
+    },
+    {
+      "id": "speech-a2-1749464670927",
+      "question": "Saturday",
+      "answer": [
+        "Samstag"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/17.mp3"
+    },
+    {
+      "id": "speech-a2-1749464682576",
+      "question": "Sunday",
+      "answer": [
+        "Sonntag"
+      ],
+      "speechDeckType": "a2",
+      "speechFallbackText": "Sonntag"
+    },
+    {
+      "id": "speech-a2-1749464764843",
+      "question": "What time is it?",
+      "answer": [
+        "Wie spät ist es?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/94.mp3"
+    },
+    {
+      "id": "speech-a2-1749464807893",
+      "question": "At what time?",
+      "answer": [
+        "Um wie viel Uhr?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/108.mp3"
+    },
+    {
+      "id": "speech-a2-1749464868060",
+      "question": "What does ... mean?",
+      "answer": [
+        "Was bedeutet ..."
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/74.mp3"
+    },
+    {
+      "id": "speech-a2-1749464936510",
+      "question": "I dont understand",
+      "answer": [
+        "Ich verstehe nicht"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/116.mp3"
+    },
+    {
+      "id": "speech-a2-1749464968309",
+      "question": "I understand",
+      "answer": [
+        "Ich verstehe"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/150.mp3"
+    },
+    {
+      "id": "speech-a2-1749465093293",
+      "question": "See you soon",
+      "answer": [
+        "bis bald"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/27.mp3"
+    },
+    {
+      "id": "speech-a2-1749465177010",
+      "question": "see you tomorrow",
+      "answer": [
+        "bis morgen"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/18.mp3"
+    },
+    {
+      "id": "speech-a2-1749485462631",
+      "question": "last week",
+      "answer": [
+        "letzte Woche"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/72.mp3"
+    },
+    {
+      "id": "speech-a2-1749485529273",
+      "question": "last month",
+      "answer": [
+        "letzten Monat"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/87.mp3"
+    },
+    {
+      "id": "speech-a2-1749485558306",
+      "question": "last year",
+      "answer": [
+        "letztes Jahr"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/103.mp3"
+    },
+    {
+      "id": "speech-a2-1749485595206",
+      "question": "a while ago",
+      "answer": [
+        "vor einer Weile"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/41.mp3"
+    },
+    {
+      "id": "speech-a2-1749485639473",
+      "question": "yesterday",
+      "answer": [
+        "gestern"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/78.mp3"
+    },
+    {
+      "id": "speech-a2-1749485721523",
+      "question": "next week",
+      "answer": [
+        "nächste Woche"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/112.mp3"
+    },
+    {
+      "id": "speech-a2-1749485795523",
+      "question": "next month",
+      "answer": [
+        "nächsten Monat"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/19.mp3"
+    },
+    {
+      "id": "speech-a2-1749485838839",
+      "question": "next year",
+      "answer": [
+        "nächstes Jahr"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/66.mp3"
+    },
+    {
+      "id": "speech-a2-1749485872306",
+      "question": "tomorrow",
+      "answer": [
+        "morgen"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/138.mp3"
+    },
+    {
+      "id": "speech-a2-1749485934573",
+      "question": "now",
+      "answer": [
+        "jetzt"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/0.mp3"
+    },
+    {
+      "id": "speech-a2-1749485956923",
+      "question": "right now",
+      "answer": [
+        "jetzt gerade"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/92.mp3"
+    },
+    {
+      "id": "speech-a2-1749485975572",
+      "question": "today",
+      "answer": [
+        "heute"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/56.mp3"
+    },
+    {
+      "id": "speech-a2-1749486055306",
+      "question": "Hey!",
+      "answer": [
+        "Hey!"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/31.mp3"
+    },
+    {
+      "id": "speech-a2-1749486087072",
+      "question": "Great!",
+      "answer": [
+        "Toll!"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/22.mp3"
+    },
+    {
+      "id": "speech-a2-1749486109289",
+      "question": "Cool!",
+      "answer": [
+        "Spitze!"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/132.mp3"
+    },
+    {
+      "id": "speech-a2-1749486157772",
+      "question": "No problem",
+      "answer": [
+        "Kein Problem"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/85.mp3"
+    },
+    {
+      "id": "speech-a2-1749486178706",
+      "question": "Sure",
+      "answer": [
+        "Klar!"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/86.mp3"
+    },
+    {
+      "id": "speech-a2-1749486214406",
+      "question": "No way!",
+      "answer": [
+        "Auf keinen Fall!"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/146.mp3"
+    },
+    {
+      "id": "speech-a2-1749486241906",
+      "question": "It's OK",
+      "answer": [
+        "Alles klar"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/127.mp3"
+    },
+    {
+      "id": "speech-a2-1749486266439",
+      "question": "What a pity!",
+      "answer": [
+        "Schade!"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/42.mp3"
+    },
+    {
+      "id": "speech-a2-1749486298989",
+      "question": "Doesn't matter",
+      "answer": [
+        "Macht nichts"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/144.mp3"
+    },
+    {
+      "id": "speech-a2-1749486700239",
+      "question": "Ticket please!",
+      "answer": [
+        "Die Fahrkarten bitte!"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/111.mp3"
+    },
+    {
+      "id": "speech-a2-1749486818208",
+      "question": "How was your flight?",
+      "answer": [
+        "Wie war dein Flug?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/122.mp3"
+    },
+    {
+      "id": "speech-a2-1749486854106",
+      "question": "How was your day?",
+      "answer": [
+        "Wie war dein Tag?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/23.mp3"
+    },
+    {
+      "id": "speech-a2-1749487097406",
+      "question": "I miss you a lot too",
+      "answer": [
+        "Ich vermisse dich auch sehr"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/128.mp3"
+    },
+    {
+      "id": "speech-a2-1749487175939",
+      "question": "Do you want to pay cash or card?",
+      "answer": [
+        "Möchten Sie bar oder mit Karte bezahlen?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/54.mp3"
+    },
+    {
+      "id": "speech-a2-1749487210905",
+      "question": "cash, please",
+      "answer": [
+        "Bargeld, bitte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/93.mp3"
+    },
+    {
+      "id": "speech-a2-1749487240055",
+      "question": "card please",
+      "answer": [
+        "Karte bitte"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/67.mp3"
+    },
+    {
+      "id": "speech-a2-1749489546738",
+      "question": "What is your job?",
+      "answer": [
+        "Was ist dein Beruf?"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/25.mp3"
+    },
+    {
+      "id": "speech-a2-1749489642054",
+      "question": "I am a barber",
+      "answer": [
+        "Ich bin Friseur"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/145.mp3"
+    },
+    {
+      "id": "speech-a2-1749490062471",
+      "question": "will",
+      "answer": [
+        "werde"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/33.mp3"
+    },
+    {
+      "id": "speech-a2-1749490251704",
+      "question": "I will call you later",
+      "answer": [
+        "Ich rufe dich später an"
+      ],
+      "speechDeckType": "a2",
+      "sentenceAudioUrl": "audio/speech_a2/113.mp3"
+    }
+  ]
+}

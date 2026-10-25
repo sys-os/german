@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const settingsFolderToggleEls = Array.from(document.querySelectorAll('.settings-folder-toggle'));
     const auxiliaryToggleEls = Array.from(document.querySelectorAll('[data-auxiliary]'));
     const irregularVerbModeToggleEls = Array.from(document.querySelectorAll('[data-irregular-verb-mode]'));
+    const speechA2DeckBtnEl = document.getElementById('speech-a2-deck-btn');
     const modalVerbTableToggleEl = document.getElementById('modalverb-table-toggle');
     const modalVerbTenseToggleEls = Array.from(document.querySelectorAll('[data-modalverb-tense]'));
     const modalVerbPracticeEl = document.getElementById('modalverb-practice');
@@ -200,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
         paretoPatternFrame: 'all',
         sentenceDeckName: 'sentences_read',
         darkDeckName: 'dark_s01e01_understand',
-        studyTabSessions: { vocabulary: null, connectors: null, pareto: null, sentences: null, dark: null, irregular: null },
+        studyTabSessions: { vocabulary: null, connectors: null, pareto: null, sentences: null, dark: null, irregular: null, speech: null },
         paretoDeckSessions: { pareto_core: null, pareto_patterns: null, pareto_extension: null },
         paretoPatternFrameSessions: {},
         sentenceDeckSessions: { sentences_read: null, sentences_speak: null },
@@ -261,6 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
     const IRREGULAR_VERB_DECK_NAMES = new Set(IRREGULAR_VERB_DECKS.map(deck => deck.fileName));
     const IRREGULAR_VERB_DECK_BY_MODE = Object.fromEntries(IRREGULAR_VERB_DECKS.map(deck => [deck.mode, deck.fileName]));
+    const SPEECH_A2_DECK = { fileName: 'speech_a2', displayName: 'Speech - A2', cardCount: 155 };
     const MODALVERB_COLUMNS = [
         { key: 'koennen', label: 'können' },
         { key: 'muessen', label: 'müssen' },
@@ -463,6 +465,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return IRREGULAR_VERB_MODES.has(card?.irregularVerbMode);
     }
 
+    function isSpeechCard(card) {
+        return card?.speechDeckType === 'a2';
+    }
+
     function normalizeOptionalString(value) {
         return String(value || '').trim();
     }
@@ -640,12 +646,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const answeredCard = quizState.currentCard;
-        mobileAdvanceTimeout = setTimeout(() => {
+        const speechAudioStartedAt = performance.now();
+        const advanceWhenReady = () => {
             mobileAdvanceTimeout = null;
-            if (quizState.isShowingAnswer && quizState.currentCard === answeredCard) {
-                nextQuestion();
+            if (!quizState.isShowingAnswer || quizState.currentCard !== answeredCard) {
+                return;
             }
-        }, MOBILE_ADVANCE_DELAY_MS);
+            const speechAudioPlaying = isSpeechCard(answeredCard)
+                && quizState.autoplayAudioEnabled
+                && ((!quizState.audio.paused && !quizState.audio.ended) || window.speechSynthesis?.speaking);
+            if (speechAudioPlaying && performance.now() - speechAudioStartedAt < 15000) {
+                mobileAdvanceTimeout = setTimeout(advanceWhenReady, 250);
+                return;
+            }
+            nextQuestion();
+        };
+        mobileAdvanceTimeout = setTimeout(advanceWhenReady, MOBILE_ADVANCE_DELAY_MS);
     }
 
     function resetQuizSelection() {
@@ -815,7 +831,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function normalizeInputForCurrentMode(value) {
-        if (isParetoCard(quizState.currentCard) || isSentenceDeckCard(quizState.currentCard) || isDarkDeckCard(quizState.currentCard) || isConnectorDeckCard(quizState.currentCard)) {
+        if (isParetoCard(quizState.currentCard) || isSentenceDeckCard(quizState.currentCard) || isDarkDeckCard(quizState.currentCard) || isConnectorDeckCard(quizState.currentCard) || isSpeechCard(quizState.currentCard)) {
             return normalizeSentenceAnswer(value);
         }
 
@@ -958,6 +974,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateAnswerInputPlaceholder() {
+        if (isSpeechCard(quizState.currentCard)) {
+            answerInputEl.placeholder = 'Type the German phrase...';
+            return;
+        }
+
         if (quizState.currentCard?.sentenceDeckType === 'read') {
             answerInputEl.placeholder = 'Type the English meaning...';
             return;
@@ -1075,6 +1096,7 @@ document.addEventListener('DOMContentLoaded', () => {
         questionEl.classList.toggle('dark-deck-prompt', isDarkDeckCard(card));
         questionEl.classList.toggle('connector-prompt', isConnectorDeckCard(card));
         questionEl.classList.toggle('irregular-verb-prompt', isIrregularVerbCard(card));
+        questionEl.classList.toggle('speech-prompt', isSpeechCard(card));
         questionEl.classList.toggle('reverse-prompt', !isParetoCard(card) && !isSentenceDeckCard(card) && !isDarkDeckCard(card) && (isReverseWordModeActive() || isSentenceTranslationModeActive() || isCasePracticeModeActive()));
         if (isIrregularVerbCard(card)) {
             questionEl.innerHTML = `
@@ -1093,7 +1115,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        if (autoplayOnDisplay && quizState.autoplayAudioEnabled && !isParetoCard(card) && !isSentenceDeckCard(card) && !isDarkDeckCard(card)) {
+        if (autoplayOnDisplay && quizState.autoplayAudioEnabled && !isParetoCard(card) && !isSentenceDeckCard(card) && !isDarkDeckCard(card) && !isSpeechCard(card)) {
             if (isSentenceTranslationModeActive() || isCasePracticeModeActive()) {
                 playCurrentSentenceAudio();
                 return;
@@ -1114,6 +1136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         questionEl.classList.remove('dark-deck-prompt');
         questionEl.classList.remove('connector-prompt');
         questionEl.classList.remove('irregular-verb-prompt');
+        questionEl.classList.remove('speech-prompt');
         renderSceneMedia(null);
 
         if (quizState.deckName) {
@@ -1333,6 +1356,9 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleEl.checked = quizState.activeStudyTab === 'irregular'
                 && toggleEl.dataset.irregularVerbMode === quizState.irregularVerbMode;
         });
+        const speechActive = quizState.activeStudyTab === 'speech';
+        speechA2DeckBtnEl.classList.toggle('active', speechActive);
+        speechA2DeckBtnEl.setAttribute('aria-pressed', String(speechActive));
         document.body.classList.toggle('pareto-tab-active', quizState.activeStudyTab === 'pareto');
         document.body.classList.toggle('sentence-tab-active', quizState.activeStudyTab === 'sentences');
         document.body.classList.toggle('dark-tab-active', quizState.activeStudyTab === 'dark');
@@ -1370,7 +1396,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function switchStudyTab(targetTab) {
-        if (!['vocabulary', 'pareto'].includes(targetTab) || targetTab === quizState.activeStudyTab) {
+        if (!['vocabulary', 'pareto', 'speech'].includes(targetTab) || targetTab === quizState.activeStudyTab) {
             return;
         }
 
@@ -1406,6 +1432,8 @@ document.addEventListener('DOMContentLoaded', () => {
             await startQuiz(quizState.darkDeckName, 'conquest');
         } else if (targetTab === 'connectors') {
             await startQuiz('conversation_connectors', 'conquest');
+        } else if (targetTab === 'speech') {
+            await startQuiz(SPEECH_A2_DECK.fileName, 'conquest');
         } else {
             resetQuizSelection();
         }
@@ -1428,7 +1456,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (quizState.activeStudyTab === 'irregular' && quizState.irregularVerbMode) {
             quizState.irregularVerbSessions[quizState.irregularVerbMode] = currentSession;
         } else {
-            quizState.irregularVerbReturnTab = ['vocabulary', 'connectors', 'pareto', 'sentences', 'dark']
+            quizState.irregularVerbReturnTab = ['vocabulary', 'pareto', 'speech']
                 .includes(quizState.activeStudyTab)
                 ? quizState.activeStudyTab
                 : 'vocabulary';
@@ -1627,6 +1655,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 sentences: quizState.activeStudyTab === 'sentences' ? null : quizState.studyTabSessions.sentences,
                 dark: quizState.activeStudyTab === 'dark' ? null : quizState.studyTabSessions.dark,
                 irregular: quizState.activeStudyTab === 'irregular' ? null : quizState.studyTabSessions.irregular,
+                speech: quizState.activeStudyTab === 'speech' ? null : quizState.studyTabSessions.speech,
                 paretoDeckSessions: Object.fromEntries(
                     Object.entries(quizState.paretoDeckSessions).map(([deckName, session]) => [
                         deckName,
@@ -1706,11 +1735,11 @@ document.addEventListener('DOMContentLoaded', () => {
         quizState.irregularVerbMode = IRREGULAR_VERB_MODES.has(settings.irregularVerbMode)
             ? settings.irregularVerbMode
             : null;
-        quizState.irregularVerbReturnTab = ['vocabulary', 'pareto']
+        quizState.irregularVerbReturnTab = ['vocabulary', 'pareto', 'speech']
             .includes(settings.irregularVerbReturnTab)
             ? settings.irregularVerbReturnTab
             : 'vocabulary';
-        quizState.activeStudyTab = ['vocabulary', 'pareto', 'irregular'].includes(settings.activeStudyTab)
+        quizState.activeStudyTab = ['vocabulary', 'pareto', 'irregular', 'speech'].includes(settings.activeStudyTab)
             && (settings.activeStudyTab !== 'irregular' || quizState.irregularVerbMode)
             ? settings.activeStudyTab
             : 'vocabulary';
@@ -1733,6 +1762,7 @@ document.addEventListener('DOMContentLoaded', () => {
             sentences: snapshot.studyTabs?.sentences || null,
             dark: snapshot.studyTabs?.dark || null,
             irregular: snapshot.studyTabs?.irregular || null,
+            speech: snapshot.studyTabs?.speech || null,
         };
         quizState.paretoDeckSessions = {
             pareto_core: snapshot.studyTabs?.paretoDeckSessions?.pareto_core || null,
@@ -1952,7 +1982,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!quizState.currentCardHasBeenGivenUp) {
                 quizState.score++;
             }
-            feedbackEl.innerHTML = `Correct!${meaningHTML}`;
+            const speechAnswer = isSpeechCard(quizState.currentCard)
+                ? `<br><span class="speech-answer">${escapeHtml(getPrimaryAnswer(quizState.currentCard))}</span>`
+                : '';
+            feedbackEl.innerHTML = `Correct!${speechAnswer}${meaningHTML}`;
             feedbackEl.className = 'correct';
             answerInputEl.value = '';
         } else {
@@ -1967,12 +2000,14 @@ document.addEventListener('DOMContentLoaded', () => {
         updateStats(isCorrect && !quizState.currentCardHasBeenGivenUp);
 
         if (quizState.autoplayAudioEnabled) {
-            if (isSentenceDeckCard(quizState.currentCard) || isDarkDeckCard(quizState.currentCard) || isSentenceTranslationModeActive() || isCasePracticeModeActive()) {
+            if (isSentenceDeckCard(quizState.currentCard) || isDarkDeckCard(quizState.currentCard) || isSpeechCard(quizState.currentCard) || isSentenceTranslationModeActive() || isCasePracticeModeActive()) {
                 playCurrentSentenceAudio();
             } else {
                 playCurrentWordAudio();
             }
         }
+
+        updateAudioButtons(quizState.currentCard);
 
         // --- Pokemon Mode Logic ---
         if (quizState.pokemonModeActive && isCorrect) {
@@ -2563,10 +2598,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateAudioButtons(card) {
         const wordAudioVisible = Boolean(card && card.wordAudioUrl);
-        const sentenceAudioVisible = Boolean(card && card.sentenceAudioUrl);
+        const sentenceAudioVisible = Boolean(card && (card.sentenceAudioUrl || card.speechFallbackText)
+            && (!isSpeechCard(card) || quizState.isShowingAnswer));
 
         playWordAudioBtn.textContent = 'Play Word';
-        playSentenceAudioBtn.textContent = isSentenceDeckCard(card) || isDarkDeckCard(card) ? 'Play Audio' : 'Play Sentence';
+        playSentenceAudioBtn.textContent = isSentenceDeckCard(card) || isDarkDeckCard(card) || isSpeechCard(card) ? 'Play Audio' : 'Play Sentence';
         playWordAudioBtn.classList.toggle('hidden', !wordAudioVisible);
         playSentenceAudioBtn.classList.toggle('hidden', !sentenceAudioVisible);
         playWordAudioBtn.disabled = !wordAudioVisible;
@@ -2576,6 +2612,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function stopAudioPlayback() {
         quizState.audio.pause();
         quizState.audio.currentTime = 0;
+        window.speechSynthesis?.cancel();
     }
 
     function playAudio(url) {
@@ -2598,6 +2635,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function playCurrentSentenceAudio() {
+        if (isSpeechCard(quizState.currentCard) && quizState.currentCard.speechFallbackText) {
+            if (!window.speechSynthesis || typeof SpeechSynthesisUtterance === 'undefined') {
+                return;
+            }
+            stopAudioPlayback();
+            const utterance = new SpeechSynthesisUtterance(quizState.currentCard.speechFallbackText);
+            utterance.lang = 'de-DE';
+            window.speechSynthesis?.speak(utterance);
+            return;
+        }
         playAudio(quizState.currentCard?.sentenceAudioUrl);
     }
 
@@ -2606,7 +2653,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        if (isSentenceDeckCard(quizState.currentCard) || isDarkDeckCard(quizState.currentCard) || isSentenceTranslationModeActive() || isCasePracticeModeActive()) {
+        if (isSentenceDeckCard(quizState.currentCard) || isDarkDeckCard(quizState.currentCard) || isSpeechCard(quizState.currentCard) || isSentenceTranslationModeActive() || isCasePracticeModeActive()) {
             playCurrentSentenceAudio();
             return;
         }
@@ -2869,7 +2916,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }))
                 .sort((a, b) => String(b.importedAt || '').localeCompare(String(a.importedAt || '')));
 
-            quizState.decks = [...builtInDecksWithCounts, ...IRREGULAR_VERB_DECKS, ...PARETO_DECKS, ...customDeckEntries];
+            quizState.decks = [...builtInDecksWithCounts, ...IRREGULAR_VERB_DECKS, SPEECH_A2_DECK, ...PARETO_DECKS, ...customDeckEntries];
             deckSelectorEl.innerHTML = '<option value="">-- Select Deck --</option>';
 
             const appendDeckOptions = (decks, groupLabel) => {
@@ -3300,6 +3347,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+
+        speechA2DeckBtnEl.addEventListener('click', () => switchStudyTab('speech'));
 
         modalVerbTenseToggleEls.forEach(toggleEl => {
             toggleEl.addEventListener('change', () => {
