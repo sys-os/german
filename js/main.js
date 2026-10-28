@@ -1104,10 +1104,58 @@ document.addEventListener('DOMContentLoaded', () => {
         reverseSentenceSettingEl.classList.toggle('hidden', !isReverseWordModeActive());
     }
 
+    function maskGermanAnswerInSentence(card) {
+        const articles = new Set(['der', 'die', 'das', 'ein', 'eine', 'einen', 'einem', 'einer', 'dem', 'den', 'des']);
+        const targets = new Set();
+        (card.germanAnswers || [card.question]).forEach(answer => {
+            String(answer).split(/[,;/]/).forEach(variant => {
+                const words = variant.match(/\p{L}+/gu) || [];
+                if (words.length > 1 && articles.has(words[0].toLocaleLowerCase('de'))) {
+                    words.shift();
+                }
+                words.forEach(word => targets.add(word.toLocaleLowerCase('de')));
+            });
+        });
+
+        const foldUmlauts = word => word.replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u');
+        const targetWords = [...targets];
+        return card.germanExample.replace(/\p{L}+/gu, word => {
+            const lowerWord = word.toLocaleLowerCase('de');
+            if (targets.has(lowerWord)) return '____';
+            if (card.partOfSpeech === 'Noun' && targetWords.some(target => target.length >= 5 && lowerWord.includes(target))) {
+                return '____';
+            }
+
+            const hasInflectedTarget = targetWords.some(target => {
+                if (target.length < 4) return false;
+                let stem = target;
+                if (card.partOfSpeech === 'Verb') {
+                    if (target.endsWith('en')) stem = target.slice(0, -2);
+                    else if (/(?:ern|eln)$/.test(target)) stem = target.slice(0, -1);
+                }
+                const canChangeVowel = card.partOfSpeech === 'Verb' || card.partOfSpeech === 'Noun';
+                const comparableStem = canChangeVowel ? foldUmlauts(stem) : stem;
+                const comparableWord = canChangeVowel ? foldUmlauts(lowerWord) : lowerWord;
+                const ending = comparableWord.slice(comparableStem.length);
+                return comparableStem.length >= 3
+                    && comparableWord.startsWith(comparableStem)
+                    && (/^(e|en|em|er|es|n|s|st|t|te|ten|test|tet|et)$/.test(ending)
+                        || (card.partOfSpeech === 'Verb' && target.endsWith('en') && ending === ''));
+            });
+            return hasInflectedTarget ? '____' : word;
+        });
+    }
+
     function renderGermanExample(card) {
         if (!shouldShowGermanExample(card)) {
             germanExampleEl.innerHTML = '';
             germanExampleEl.style.display = 'none';
+            return;
+        }
+
+        if (isReverseWordModeActive()) {
+            germanExampleEl.textContent = maskGermanAnswerInSentence(card);
+            germanExampleEl.style.display = 'block';
             return;
         }
 
